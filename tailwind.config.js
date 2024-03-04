@@ -6,6 +6,9 @@ export default {
   ],
   theme: {
     extend: {},
+    fontFamily: {
+      'karla': ['karla', 'sans-serif'],
+    }
   },
   corePlugins: {
     aspectRatio: false,
