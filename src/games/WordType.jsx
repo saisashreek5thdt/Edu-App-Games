@@ -1,4 +1,5 @@
 import React, { useState, createContext, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import { Board, Keyboard, GameOver } from "../components/index";
 import { boardDefault, generateWordSet } from "./Words";
 
@@ -65,32 +66,47 @@ function WordType() {
     });
   };
 
+  const navigate = useNavigate();
+
+  const btnHandler = () => {
+    navigate('/');
+  }
+
   return (
-    <div className="App">
-      <nav>
-        <h1>Wordle</h1>
-      </nav>
-      <AppContext.Provider
-        value={{
-          board,
-          setBoard,
-          currAttempt,
-          setCurrAttempt,
-          correctWord,
-          onSelectLetter,
-          onDelete,
-          onEnter,
-          setDisabledLetters,
-          disabledLetters,
-          gameOver,
-        }}
+    <>
+      <button
+        type="button"
+        className="m-2 p-2 rounded-xl bg-gray-700 text-slate-300 hover:bg-gray-500 hover:text-slate-100 hover:text-lg font-karla font-semibold"
+        onClick={btnHandler}
       >
-        <div className="game">
-          <Board />
-          {gameOver.gameOver ? <GameOver /> : <Keyboard />}
-        </div>
-      </AppContext.Provider>
-    </div>
+        Home
+      </button>
+      <div className="App">
+        <nav>
+          <h1>Wordle</h1>
+        </nav>
+        <AppContext.Provider
+          value={{
+            board,
+            setBoard,
+            currAttempt,
+            setCurrAttempt,
+            correctWord,
+            onSelectLetter,
+            onDelete,
+            onEnter,
+            setDisabledLetters,
+            disabledLetters,
+            gameOver,
+          }}
+        >
+          <div className="game">
+            <Board />
+            {gameOver.gameOver ? <GameOver /> : <Keyboard />}
+          </div>
+        </AppContext.Provider>
+      </div>
+    </>
   );
 }
 
