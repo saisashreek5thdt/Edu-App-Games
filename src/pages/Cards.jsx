@@ -12,7 +12,7 @@ const Cards = ({ imgSrc, title, desc, onClick }) => {
           <img alt="Placeholder" className="block h-auto w-full" src={imgSrc} />
 
           <header className="flex items-center justify-between leading-tight p-2 md:p-4">
-            <h1 className="text-lg no-underline text-black">{title}</h1>
+            <h1 className="text-lg font-semibold no-underline text-black">{title}</h1>
             <p className="text-teal-700 font-semibold text-sm">Play Now</p>
           </header>
 
