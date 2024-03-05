@@ -5,22 +5,30 @@ import Cards from "./Cards";
 const Home = () => {
   const navigate = useNavigate();
 
-  const cardHandler = () => {
+  const wordScrambleHandler = () => {
     navigate("/game/words/");
+  };
+
+  const numberGameHandler = () => {
+    navigate("/game/numbers/");
   };
 
   return (
     <>
       <div className="container my-4 mx-auto px-4 md:px-12">
         <div className="flex flex-wrap -mx-1 lg:-mx-4">
-          <div className="my-1 px-1 w-full md:w-1/2 lg:my-4 lg:px-4 lg:w-1/3">
-            <Cards
-              imgSrc={`https://picsum.photos/600/400/?random`}
-              title={`Words Scramble`}
-              desc={`Age: 6 - 10`}
-              onClick={cardHandler}
-            />
-          </div>
+          <Cards
+            imgSrc={`https://picsum.photos/600/400/?random`}
+            title={`Words Scramble`}
+            desc={`Age: 6 - 10`}
+            onClick={wordScrambleHandler}
+          />
+          <Cards
+            imgSrc={`https://picsum.photos/600/400/?random`}
+            title={`Numbers Game`}
+            desc={`Age: 6 - 10`}
+            onClick={numberGameHandler}
+          />
         </div>
       </div>
     </>
